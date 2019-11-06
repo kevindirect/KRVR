@@ -1,0 +1,60 @@
+#!/bin/sh
+
+# basic
+alias c="clear" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	l="ls -lahN --color=auto --group-directories-first" \
+	ls="ls -hN --color=auto --group-directories-first" \
+	i="htop -t" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+	hg="history | grep" \
+	mkd="mkdir -pv" \
+	appsync="rsync -avxP" \
+	mirsync="rsync -avxP --delete" \
+	sdn="sudo shutdown -h now" \
+	lap="ps -u" \
+	kap="killall" \
+	lamp="ps -u $(whoami)" \
+	kamp="killall -u $(whoami)";
+
+# networking
+alias lptl="sudo lsof -i -P -n | grep LISTEN";
+
+# git
+alias g="git" \
+	gsb="git status -sb" \
+	gss="git status -s" \
+	gst="git status" \
+	gl="git pull" \
+	ga="git add" \
+	grm="git rm" \
+	gcmsg="git commit -m" \
+	gua="git remote | xargs -L1 git push --all" \
+	gpp="git pull && git push origin master";
+
+# xbps / misc. void
+alias xg="xbps-query -l | grep" \
+	xs="sudo xbps-install -S" \
+	xu="sudo xbps-install -Su" \
+	xcl="sudo xbps-remove -Oo";
+
+# other package managers
+#alias
+
+# other
+alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner";
+
+# combo aliases
+alias cl="xcl"; # Clear all caches
+
+
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Alias neovim as vim if present.
+se() { du -a ~/.local/bin/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
+vf() { fzf | xargs -r -I % $EDITOR % ;}

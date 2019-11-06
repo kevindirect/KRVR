@@ -1,0 +1,15 @@
+# Ignore All:
+*
+
+# Traverse Directories
+!*/
+
+# Whitelist:
+!/htop/**
+!/nnn/**
+!/nvim/**
+!/sxhkd/**
+!/tmux/**
+!aliasrc
+!README.md
+!.gitignore
