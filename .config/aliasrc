@@ -40,6 +40,7 @@ alias g="git" \
 alias xg="xbps-query -l | grep" \
 	xs="sudo xbps-install -S" \
 	xu="sudo xbps-install -Su" \
+	xr="sudo xbps-remove -R" \
 	xcl="sudo xbps-remove -Oo";
 
 # other package managers
